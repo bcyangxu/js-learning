@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// toString() 方法
+			var x = 123
+			var y = x.toString()
+			console.log(typeof y)
+			 
+			// toExponential() 方法
+			// 返回字符串值，包含已被四舍五入并使用指数计数法的数字
+			// 参数定义小数点后的字符数
+			var a = 1.2345
+			console.log(a.toExponential(2))
+			console.log(a.toExponential(4))
+			
+			// toFixed() 方法
+			// 返回字符串值，包含了指定唯小数的数字
+			console.log(a.toFixed(1))
+			console.log(a.toFixed(2))
+			
+			// toPrecision() 方法
+			// 返回字符串值，包含了指定长度的数字
+			console.log(a.toPrecision(2))
+			console.log(a.toPrecision(3))
+			
+			// vauleOf() 方法
+			// 以数值返回数值
+			console.log(a.valueOf())
+			console.log((123).valueOf())
+			
+			// 变量转换为数值
+			// Number() 方法
+			x = true
+			console.log(Number(x))
+			x = new Date()
+			console.log(Number(x))
+			x = '123'
+			console.log(Number(x))
+			x = '12 34'
+			// 无法转换返回NaN
+			console.log(Number(x))
+			
+			// parseInt() 方法
+			// 解析一段字符串并返回数值，允许空格，只返回首个数字
+			console.log(parseInt('10'))
+			console.log(parseInt('10.33'))
+			console.log(parseInt('10 years'))
+			console.log(parseInt('years 12'))
+			
+			// parseFloat() 方法
+			console.log(parseFloat('10'))
+			console.log(parseFloat('10.02'))
+			
+		</script>
+	</body>
+</html>

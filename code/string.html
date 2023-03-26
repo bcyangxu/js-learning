@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'hello,hbnu'
+			console.log(str)
+		//字符串方法
+			//length属性返回字符串长度
+			var sln = str.length
+			console.log(sln)
+			// indexOf()方法返回字符串中指定文本首次出现的索引
+			var index = str.indexOf('h')
+			console.log(index)
+			// lastIndexOf() 方法返回指定文本在字符串中最后一次出现的索引
+			console.log(str.lastIndexOf('h'))
+			// 如果找不到字符串，indexOf() 和 lastIndexOf() 均返回-1
+			console.log(str.indexOf('a'))
+			console.log(str.lastIndexOf('a'))
+			// 两种方法都接受作为检索起始位置的第二个参数
+			console.log(str.indexOf('h',3))
+			console.log(str.lastIndexOf('h',2))
+			
+			console.log(str.search('hbnu'))
+			// slice()方法 提取字符串某个部分并返回在新的字符串中
+				// 两个参数:起始索引，终止索引
+			var str2 = str.slice(6,10)
+			console.log(str2)
+			// 参数为负则从字符串的结尾开始计数
+			console.log(str.slice(-6,-4))
+			// 省略第二个参数则截取剩余部分
+			console.log(str.slice(-4))
+			// substring() 方法 与slice() 类似，无法接受负的索引
+			console.log(str.substring(6,10))
+			console.log(str.substring(6))
+			// substr() 与是slice() 类似
+			// 第二个参数规定提取部分的长度
+			console.log(str.substr(6,2))
+			// 省略第二个参数则截取剩余部分
+			console.log(str.substr(6))
+			
+			// replace() 方法用另一个值替换在字符串中的值
+			console.log(str.replace('hbnu','pku'))
+			// 默认只替换首个匹配
+			// 对大小写敏感
+			console.log(str.replace('HBNU','PKU'))
+			// 如需执行大小写不敏感替换，可以使用正则表达式
+			console.log(str.replace(/HBNU/i,'pku'))
+			// 如需替换所有匹配，可使用正则表达式的 g 标志（用于全局搜索）
+			
+			// 大小写转换
+			console.log(str.toUpperCase())
+			var str3 = 'Hello World'
+			console.log(str3.toLowerCase())
+			
+			// concat() 方法，连接两个或多个字符串
+			var text1 = 'hello'
+			var text2 = 'whu'
+			var text3 = text1.concat(' ',text2)
+			console.log(text3)
+			
+			// trim() 方法删除字符串两端的空白
+			var text4 = '        hello test'
+			console.log(text4)
+			console.log(text4.trim())
+			
+			// charAt() 方法 返回字符串中指定下标的字符
+			console.log(str.charAt(0))
+			// charAtCode() 返回字符串指定下标的字符unicode编码
+			console.log(str.charCodeAt(0))
+			// 属性访问
+			console.log(str[1])
+			
+			// 字符串转换数组
+			var txt = 'java,c,python'
+			console.log(txt.split(','))
+			console.log(txt.split(''))
+			console.log(txt.split())
+		</script>
+	</body>
+</html>

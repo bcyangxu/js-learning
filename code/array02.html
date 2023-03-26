@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数组转换为字符串
+			var arr = ['html','css','js']
+			// toString() 方法将字符串转换为用逗号分隔数组值的字符串
+			console.log(arr.toString())
+			// join() 方法,类似toString(),可以指定分隔符
+			console.log(arr.join('/'))
+			
+			// Popping 和 Pushing
+			// pop() 方法从数组中删除最后一个元素,并返回被删除的元素
+			var a = arr.pop()
+			console.log(a)
+			console.log(arr)
+			// push() 方法在数组末尾添加一个新的元素,并返回新数组的长度
+			var a = arr.push('js')
+			console.log(a)
+			console.log(arr)
+			// 位移元素
+			// shift()方法 删除首个数组元素，并把所有的元素位移到更低的索引
+			// 返回被删除的数组元素
+			var a = arr.shift()
+			console.log(a)
+			console.log(arr)
+			// unshift() 方法 在开头向数组添加新元素，并反向位移旧元素
+			// 返回新数组的长度
+			var a = arr.unshift('html')
+			console.log(a)
+			console.log(arr)
+			// 更改元素
+			// 通过下标访问数组元素
+			arr[2] = 'javascript'
+			console.log(arr)
+			// 通过length属性
+			arr[arr.length - 1] = 'js'
+			console.log(arr)
+			
+			//删除元素 delete 使用 delete 会在数组留下未定义的空洞
+			delete arr[2]
+			console.log(arr)
+			
+			// 拼接数组 
+			// splice() 方法可用于向数组添加新元素
+			// 第一个参数定义应添加新元素的位置
+			// 第二个参数定义应删除多少元素
+			// 其余参数定义要添加的新元素
+			// 返回一个包含已删除元素的数组
+			var fruits = ['banana','apple','orange','mango']
+			var x = fruits.splice(2,1,'pear','peach')
+			console.log(fruits)
+			console.log(x)
+			// 使用splice()删除元素，可以在数组不留下空洞
+			fruits.splice(0,1)
+			console.log(fruits)
+			
+			//连接数组
+			// concat()方法 通过合并现有数组来创建一个新的数组
+			// 不会改变现有数组，总是返回一个新的数组
+			// 可以使用任意数量的数组参数
+			var arr1 = [1,2,3,4]
+			var arr2 = [5,6,7,8]
+			var arr3 = [9,10,11,12]
+			var arr4 = arr1.concat(arr2,arr3)
+			console.log(arr4)
+			
+			// 裁剪数组
+			// slice() 方法创建新的数组，不会从原数组中删除任何元素
+			// 第一个参数为起始索引，第二个参数为结束索引（不包括）
+			var a = fruits.slice(1,2)
+			console.log(a)
+		</script>
+	</body>
+</html>

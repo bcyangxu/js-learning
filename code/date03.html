@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// js日期设置方法
+			var d = new Date()
+			// setFullYear() 方法 可选月和日
+			d.setFullYear(2020)
+			console.log(d)
+			// 可选月和日
+			d.setFullYear(2020,0,1)
+			console.log(d)
+			
+			// setMonth() 方法 设置日期对象的月(0-11)
+			d.setMonth(1)
+			console.log(d)
+			// setDate() 方法 设置日期对象的日 (1-31)
+			d.setDate(20)
+			console.log(d)
+			// setHours() 方法 设置日期对象的小时 (0-23)
+			d.setHours(12)
+			console.log(d)
+			// setMinutes() 方法 设置日期对象的分钟 (0-59)
+			d.setMinutes(30)
+			console.log(d)
+			// setSecondes() 方法
+			d.setSeconds(30)
+			console.log(d)
+			
+			// 比较日期
+			var text
+			var today = new Date()
+			var someDay = new Date()
+			someDay.setFullYear(2022,1,1)
+			if(someDay > today){
+				text = '未来'
+			}else{
+				text = '过去'
+			}
+			console.log(text)
+		</script>
+	</body>
+</html>

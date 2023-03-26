@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// apply() 方法 与call() 方法非常相似
+			var person = {
+				fullName: function() {
+					return this.firstName + ' ' + this.lastName;
+				}
+			}
+			var person1 = {
+				firstName:'yang',
+				lastName:'xu'
+			}
+			console.log(person.fullName.apply(person1))
+			
+			// call() 与 apply() 的区别
+			var person = {
+				fullName: function(sex,age) {
+					return this.firstName + ' ' + this.lastName + ',' + sex + ',' + age;
+				}
+			}
+			var person1 = {
+				firstName:'yang',
+				lastName:'xu'
+			}
+			// call() 方法分别接受参数 apply() 方法接受数组形式的参数
+			console.log(person.fullName.apply(person1,['男','21']))
+			console.log(person.fullName.call(person1,'男','21'))
+			
+			// 在数组上模拟max方法
+			var num = Math.max(1,3,2)
+			console.log(num)
+			// 由于js数组没有max方法，因此可以应用Math.max() 方法
+			var num = Math.max.apply(null,[1,4,2])
+			console.log(num)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script>
+			// 回调函数
+			// 回调是作为参数传递给另一个函数的函数
+			function myDisplay(some) {
+				document.getElementById('demo').innerHTML = some;
+			}
+			
+			function myCalculator(num1,num2,myCallback) {
+				let sum = num1 + num2;
+				myCallback(sum);
+			}
+			
+			myCalculator(5,5,myDisplay);
+		</script>
+	</body>
+</html>

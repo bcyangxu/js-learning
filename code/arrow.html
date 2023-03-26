@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">click</button>
+		<button id="btn2">click</button>
+		<p id="demo"></p>
+		<script>
+			hello = () => 'hello world'
+			hello = (val) => 'hello ' + val
+			console.log(hello('world'))
+			// 常规函数中，this表示调用该函数的对象
+			// 箭头函数中，this关键字始终表示定义箭头函数的对象
+			hello = function(){
+				document.getElementById('demo').innerHTML += this
+			}
+			hello2 = () =>{
+				document.getElementById('demo').innerHTML += this
+			}
+			//window 对象调用函数
+			window.addEventListener('load',hello)
+			window.addEventListener('load',hello2)
+			
+			//button 对象调用函数
+			document.getElementById('btn').addEventListener('click',hello)
+			document.getElementById('btn2').addEventListener('click',hello2)
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		#container{
+			width: 400px;
+			height: 400px;
+			position: relative;
+			background-color: yellow;
+		}
+		#animate{
+			width: 50px;
+			height:50px;
+			position: absolute;
+			background-color: red;
+		}
+	</style>
+	<body>
+		<p id="demo"></p>
+		<button onclick="document.getElementById('demo').style.color='blue'">click me</button>
+		<br>
+		<span></span>
+		<div class="box"></div>
+		<img id="tx" src="img/tx.png" alt="" width="100px">
+		<button onclick="changeImg()">换个头像</button>
+		<br>
+		<button onclick="myMove()">动画</button>
+		<div id="container">
+			<div id="animate">动画</div>
+		</div>
+		<script>
+			
+			//查找html元素
+			//getElementByID(id) 通过元素id查找
+			//getElementByTagName(name) 通过标签名查找
+			//getElementByClassName(name) 通过类名查找
+			var p = document.getElementById('demo');
+			var sp = document.getElementsByTagName('span');
+			var box = document.getElementsByClassName('box');
+			p.innerHTML = 'hello';
+			sp[0].innerHTML = 'world';
+			box[0].innerHTML = 'js';
+			// 修改元素属性
+			function changeImg() {
+				console.log('change')
+				document.getElementById('tx').src = 'img/tx1.jpg'
+			}
+			p.style.color = 'red';
+			
+			function myMove(){
+				var elem = document.getElementById('animate');
+				var pos = 0;
+				var id = setInterval(frame,5);
+				function frame() {
+					if(pos == 350) {
+						clearInterval(id);
+					}else{
+						pos++;
+						elem.style.top = pos + 'px';
+						elem.style.left = pos + 'px';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

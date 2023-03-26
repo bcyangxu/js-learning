@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		  // 全局作用域和window对象
+		  
+		  // 内部作用域可以访问外部作用域的变量，外部无法访问内部
+		  const a = 'aaa';
+		  function  test() {
+			  const b = 'bbb';
+			  console.log(a);
+		  }
+		  test();
+		  //console.log(b); // 报错
+		  
+		  // 变量的作用域：全局变量 局部变量
+		  // 特殊情况：1.无论是在函数外还是函数内，变量未经声明就赋值，这个变量是全局变量
+					//2.局部变量和全局变量重名，则在函数内部，以局部变量为准
+		  function fn() {
+			  c = 100;
+		  }
+		  fn();
+		  console.log(c);
+		  
+		  // 变量提升，使用var声明的变量，会在所有的代码执行之前被声明，但是不会赋值
+		  console.log(d)
+		  var d = 1;
+			
+		 //函数提升
+		 // 函数声明形创建的函数function foo(){}，会被声明提前
+		 fn1();
+		 function fn1() {
+			 console.log('我是函数 fn1');
+		 }
+		 // 函数表达式创建的函数const foo = function() {},不会被声明提前
+		 //fn2(); // 不能在声明前面调用
+		 const fn2 = function() {
+			 console.log('我是fn2');
+		 }
+		 fn2();
+		 // 函数提升优于变量提升
+		 fun();
+		 
+		 var fun = function() {
+			 console.log('A');
+		 }
+		 
+		 function fun() {
+			 console.log('B');
+		 }
+		 
+		 fun();
+		</script>
+
+	</body>
+</html>

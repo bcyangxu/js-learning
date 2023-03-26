@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="myFun()">计数</button>
+		<p id="demo"></p>
+		<script>
+			//document.getElementById('demo').innerHTML = add()
+			var add = (function() {
+				// 自调用函数只执行一次，初始化counter变量，并返回函数表达式
+				//add就成为了函数，能够访问父作用域中的counter变量
+				var counter = 0;
+				return function() {return counter += 1}
+			})();
+			function myFun() {
+				document.getElementById('demo').innerHTML  = add();
+			}
+			
+			function fn1() {
+				const a = 100;
+				return function fn2() {
+					console.log(a);
+				};
+			}
+			fn1();
+			const result = fn1();
+			result();
+			
+			// 闭包的表现形式
+			// 1.将一个函数作为另一个函数的返回值
+			function fn2() {
+				var a = 2;
+				function fn3() {
+					a++;
+					console.log(a);
+				}
+				return fn3;
+			}
+			var f = fn2();
+			f();
+			f();
+			// 2.将函数作为实参传递给另一个函数
+			function showDelay(msg,time) {
+				setTimeout(function() {
+					alert(msg);
+				},time)
+			}
+			showDelay('yangxu',2000);
+			
+			// 闭包的应用场景
+			// 1.高阶函数
+			function createCheckTemp(standardTemp) {
+				function checkTemp(n) {
+					if(n >= standardTemp) {
+						console.log('成绩合格');
+					}else {
+						console.log('成绩不合格');
+					}
+				}
+				return checkTemp;
+			}
+			
+			var checkA = createCheckTemp(60);
+			var checkB = createCheckTemp(70);
+			
+			checkA(65);
+			checkB(65);
+			
+		</script>
+	</body>
+</html>

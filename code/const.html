@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//通过const定义的变量与let相似，但不能重新赋值
+			const PI = 3.1415926
+			//PI = 3.14 会报错
+			//PI = PI + 10 也会报错
+			
+			//块作用域
+			var x = 10
+			console.log('x:'+x) // x = 10
+			{
+				const x = 5
+				console.log('x:'+x)	// x = 5
+			}
+			console.log('x:'+x) // x = 10
+			
+			//在声明时赋值
+			// const a 
+			// a = 10 这样会报错
+			const a = 10 //这样才是正确的
+			
+			//不是真正的常数
+			// const关键字没有定义常量值，定义了对值的常量引用
+			// 不能更改常量原始值，但可以更改对常量对象的引用
+			const person = {name:'yangxu',age:21}
+			person.age = 22   // 可以更改属性
+			person.sex = '男'	//也可以添加属性
+			console.log(person)
+			// 无法重新为常量赋值
+			//person = {name:'john',age:20} 
+			
+			//常量数组可以更改
+			const num = [1,2,3,4]
+			num[0] = 0
+			num.push(5)
+			console.log(num)
+			// 无法重新为常量数组赋值
+			//num = [1,2,3]
+			
+			//重新声明
+				//在同一，作用域获块中，不允许将已有的var或let变量重新声明或赋值给const
+			var x = 1
+			//const x = 2 不允许
+			{
+				let x = 2
+				//const x = 2 不允许
+			}
+			
+			// 在同一变量或作用域中，为已有的const变量重新声明或赋值是不允许的
+			const y = 1
+			// const y = 2 不允许
+			// y = 2 不允许
+			// var y = 2 不允许
+			// let y = 2 不允许
+			{
+				const y = 2 // 允许
+				// const y = 2 不允许
+				// y = 2 不允许
+				// var y = 2 不允许
+				// let y = 2 不允许
+			}
+			
+			// 在另外的作用域或块中重新声明const是允许的
+			const n = 1
+			{
+				const n = 2 // 允许
+			}
+			
+			// 通过const声明的变量不会呗提升到顶端
+ 		</script>
+	</body>
+</html>

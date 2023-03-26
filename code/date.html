@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo1"></div>
+		<div id="demo2"></div>
+		<div id="demo3"></div>
+		<div id="demo4"></div>
+		<script>
+			var date = new Date()
+			console.log(date)
+			// 7个数字分别是 年，月，日，时，分，秒，毫秒
+			// js从0-11计算月份
+			var d1 = new Date(2019, 11, 23, 10, 33, 20, 0)
+			console.log(d1)
+			// 月份不能省略
+			var d2 = new Date(2018,11)
+			console.log(d2)
+			// 省略月份，只提供一个参数会被当成毫秒
+			var d3 = new Date(2018)
+			console.log(d3)
+			
+			// new Date(dateString) 从日期字符串创建一个新的日期对象
+			var d = new Date('October 13, 2014 11:13:00')
+			console.log(d)
+			// js将日期存储为自1970年月1日00:00:00 UTC 以来的毫秒数
+			var d = new Date(0)
+			console.log(d)
+			// 在HTML中显示日期对象时，会使用toString()方法自动转换为字符串
+			var d = new Date();
+			var demo1 = document.getElementById('demo1')
+			var demo2 = document.getElementById('demo2')
+			var demo3 = document.getElementById('demo3')
+			var demo4 = document.getElementById('demo4')
+			// 这两种是等同的
+			demo1.innerHTML = d
+			demo2.innerHTML = d.toString()
+			// toUTCString() 方法将日期转换为UTC字符串
+			demo3.innerHTML = d.toUTCString()
+			// toDateString() 方法将日期转换为更容易读的格式
+			demo4.innerHTML = d.toDateString()
+			
+		</script>
+	</body>
+</html>

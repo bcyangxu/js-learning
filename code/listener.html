@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				background-color: red;
+				height: 300px;
+				width: 300px;
+			}
+			
+			#box1,#box2{
+				background-color: antiquewhite;
+				padding: 20px;
+				margin: 10px;
+			}
+			#p1,#p2{
+				background-color: #fff;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">click</button>
+		<div id="demo"></div>
+		<div id="box"></div>
+		<div id="cacl">
+			<input type="submit" id="btn2">
+		</div>
+		<div id="box1">
+			<h1>Bubbing:</h1>
+			<p id="p1">冒泡</p>
+		</div>
+		<div id="box2">
+			<h1>Capturing</h1>
+			<p id="p2">捕获</p>
+		</div>
+		<script>
+			var btn = document.getElementById('btn');
+			var demo = document.getElementById('demo');
+			btn.addEventListener('click',displayDate);
+			btn.addEventListener('click',function(){alert('hello')})
+			function displayDate() {
+				demo.innerHTML = Date();
+			}
+			// removeEventListener() 移出通过addEventListener() 方法添加的事件
+			btn.removeEventListener('click',displayDate)
+			var box = document.getElementById('box');
+			box.addEventListener('mouseover',function(){
+				demo.innerHTML = '鼠标移入'
+			})
+			box.addEventListener('mouseout',function(){
+				demo.innerHTML = '鼠标移出'
+			})
+			
+			window.addEventListener('resize',function(){
+				demo.innerHTML = '调整窗口大小'
+			})
+			var p1 = 2;
+			var p2 = 3;
+			document.getElementById('btn2').addEventListener('click',function(){
+				myFunction(p1,p2);
+			})
+			
+			function myFunction(a,b) {
+				var result = a + b;
+				demo.innerHTML = result;
+			}
+			// 事件冒泡和捕获
+			// 冒泡由内到外
+			document.getElementById('box1').addEventListener('click',function(){
+				alert('Bubbing');
+			},false);
+			document.getElementById('p1').addEventListener('click',function(){
+				alert('冒泡');
+			},false);
+			// 捕获由外到内
+			document.getElementById('box2').addEventListener('click',function(){
+				alert('Captuirng');
+			},true);
+			document.getElementById('p2').addEventListener('click',function(){
+				alert('捕获');
+			},true);
+		</script>
+	</body>
+</html>

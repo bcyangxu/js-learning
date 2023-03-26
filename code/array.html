@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script>
+			var arr = ['html','css','js']
+			var arr2 = new Array('java','python','c++')
+			console.log(arr[1])
+			arr2[3] = 'c#'
+			console.log(arr2)
+			// 数组是对象
+			console.log(typeof arr)
+			var arr3 = [1,3,9,4,6,7,2]
+			// length属性返回数组长度
+			console.log(arr3.length)
+			// sort() 方法对数组进行排序
+			var arr4 = arr3.sort()
+			console.log(arr4)
+			// 遍历数组
+			// for循环
+			for(let i = 0;i < arr3.length;i++){
+				console.log(arr3[i])
+			}
+			// Array.forEach() 函数
+			text = '<ul>'
+			arr.forEach(myFunction)
+			text += '</ul>'
+			document.getElementById('demo').innerHTML = text
+			
+			function myFunction(value){
+				text += '<li>' + value + '</li>'
+			}
+			
+			// 添加元素
+			// push() 方法
+			arr2.push('golang')
+			console.log(arr2)
+			// 也可使用length属性添加
+			arr2[arr2.length] = 'flutter'
+			console.log(arr2)
+			// 添加最高索引的元素可在数组中创建未定义的'洞'
+			arr2[10] = 'dart'
+			console.log(arr2)
+			// 判断数组
+			// Array.isArray() 方法
+			console.log(Array.isArray(arr))
+			// instanceof 
+			console.log(arr instanceof Array)
+		</script>
+	</body>
+</html>

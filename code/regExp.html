@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 正则表达式 
+			// 语法 /pattern/modifies
+			var patt = /test/i
+			// test 是模式(pattern) i 是修饰符(把搜索修改为大小写不敏感)
+			
+			// 字符串方法
+			// search() 使用表达式来搜索匹配，返回匹配的位置
+			var str = 'This is a test text'
+			var n = str.search(patt)
+			console.log(n)
+			
+			// 修饰符 
+			// i 执行大小写不敏感匹配
+			// g 执行全局匹配
+			// m 执行多行匹配
+			
+			// 正则表达式模式
+			// [abc] 查找方括号之间的任何字符
+			// [0-9] 查找任何从0-9的数字
+			// (x|y) 查找由|分隔的任何选项
+			var a = patt.test(str)
+			console.log(a)
+			
+			var a = patt.exec(str)
+			console.log(a)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 类的继承
+			class Person {
+				constructor(name,age) {
+					this.name = name;
+					this.age = age;
+				}
+				say() {
+					return '我是' + this.name + ',我今年' + this.age;
+				}
+			}
+			
+			class Student extends Person {
+				constructor(name,age,school) {
+					super(name,age);
+					this.school = school;
+				}
+				show() {
+					return this.say() + ',我来自' + this.school
+				}
+			}
+			
+			let stu = new Student('yangxu',21,'hbnu');
+			console.log(stu.show())
+			
+			// Getter和Setter
+			class Car {
+				constructor(brand) {
+					this._carName = brand;
+				}
+				get carName() {
+					return this._carName;
+				}
+				set carName(x) {
+					this._carName = x;
+				}
+			}
+			
+			let myCar = new Car('ford');
+			console.log(myCar.carName)
+			myCar.carName = '奔驰'
+			console.log(myCar.carName)
+			
+			// static 方法
+			class Test {
+				constructor(name) {
+					this.name = name;
+				}
+				static hello(x) {
+					return 'Hello ' + x.name;
+				}
+			}
+			
+			let test = new Test('test');
+			// 可以在Test类中调用hello方法
+			//console.log(Test.hello());
+			// 不能在test对象上调用，会引发错误
+			//console.log(test.hello())
+			// 如果要在static方法中使用Test对象，可以将其作为参数发送
+			console.log(Test.hello(test));
+		</script>
+	</body>
+</html>

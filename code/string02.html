@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// match() 方法
+			// 根据正则表达式在字符串中搜索匹配项，并返回Array对象
+			let text = "The rain in SPAIN stays mainly in the plain"
+			let arr = text.match(/ain/ig)
+			console.log(arr)
+			// includes() 如果字符串包含指定值，返回true
+			console.log(text.includes('main',20))
+			
+			// startsWith() 如果字符串以指定值开头，则返回true否则false
+			console.log(text.startsWith('Th',0))
+			//endsWith() 指定值结尾
+			console.log(text.endsWith('plain',20))
+		</script>
+	</body>
+</html>

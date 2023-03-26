@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 创建对象
+			const apples = {name:'apples'}
+			const bananas = {name:'bananas'}
+			const oranges = {name:'oranges'}
+			
+			// 创建新的map
+			const fruits = new Map()
+			
+			fruits.set(apples,100)
+			fruits.set(bananas,200)
+			fruits.set(oranges,300)
+			
+			const test = new Map([
+				[apples,100],
+				[bananas,200],
+				[oranges,300],
+			])
+			
+			console.log(test.entries())
+			console.log(test.get(apples))
+			console.log(test.has(oranges))
+			console.log(test.size)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			class Car {
+				constructor(name,year){
+					this.name = name
+					this.year = year
+				}
+				age() {
+					let date = new Date()
+					return date.getFullYear() - this.year
+				}
+			}
+			
+			let c1 = new Car('Ford',2021)
+			let c2 = new Car('Audi',2015)
+			console.log(c1,c2)
+			console.log(c2.age())
+		</script>
+	</body>
+</html>

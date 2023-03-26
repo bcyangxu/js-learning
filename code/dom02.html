@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				height: 400px;
+				width: 400px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body onload="checkCookies()">
+		<h1 onclick="changeText(this)">测试文本</h1>
+		<button onclick='displayDate(this)'>click</button>
+		<p id="demo"></p>
+		<input type="text" onchange="upperCase()" id="fname">
+		<div id="box" onmousedown="mDown(this)" onmouseup="mUp(this)"></div>
+	</body>
+	<script>
+			function changeText(id) {
+				console.log(id);
+				id.innerHTML = 'hello';
+			}
+			function displayDate(id) {
+				id.innerHTML = new Date();
+			}
+			var h1 = document.getElementsByTagName('h1');
+			console.log(h1[0]);
+			function checkCookies() {
+				var text = '';
+				if(navigator.cookieEnabled == true) {
+					text = 'cookie已启用';
+				}else{
+					text = 'cookie未启用';
+				}
+				document.getElementById('demo').innerHTML = text;
+			}
+			function upperCase() {
+				var x = document.getElementById('fname');
+				x.value = x.value.toUpperCase();
+			}
+			function mDown(obj) {
+				obj.style.backgroundColor = 'blue';
+			}
+			function mUp(obj) {
+				obj.style.backgroundColor = 'red';
+			}
+	</script>
+</html>

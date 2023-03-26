@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// set是唯一值的集合
+			// 每个值在Set中只出现一次
+			// 一个Set可以容纳任何数据类型的任何值
+			
+			const a = 'a'
+			const b = 'b'
+			const c = 'c'
+			// 创建set
+			const letters = new Set()
+			
+			letters.add(a)
+			letters.add(b)
+			letters.add(c)
+			console.log(letters)
+			
+			const letters2 = new Set()
+			letters2.add('1')
+			letters2.add('2')
+			letters2.add('3')
+			console.log(letters2)
+			
+			const letters3 = new Set(['a','b','c'])
+			console.log(letters3)
+			console.log(typeof letters)
+			console.log(letters instanceof Set)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function fun() {
+				console.log(this);
+				console.log(this.name);
+			}
+			
+			var p1 = {
+				name:'yangxu',
+				say:fun,
+			};
+			
+			var p2 = {
+				name: 'xu',
+				say:fun,
+			};
+			
+			var name = '全局属性name';
+			
+			fun();
+			p1.say();
+			// call() 方法 调用一个函数，，改变这个函数内部的this指向
+			const obj1 = {
+				name:'yangxu',
+				age:21
+			}
+			function test(a,b) {
+				console.log(this);
+				console.log(this.name);
+				console.log(a+b)
+			}
+			
+			test.call(obj1,1,2);
+			
+			// 通过 call() 实现继承
+			function Father(myName,myAge) {
+				this.name = myName;
+				this.age = myAge;
+			}
+			
+			function Son(myName,myAge) {
+				Father.call(this,myName,myAge);
+			}
+			const son1 = new Son('yangxu',21);
+			console.log(JSON.stringify(son1));
+			
+			var obj2 = {
+				name:'obj2',
+				age:20,
+			};
+			function fn1(a) {
+				console.log(this);
+				console.log(this.name);
+				console.log(a);
+			}
+			fn1.apply(obj2,['hello']);
+			
+			const arr1 = [1,3,2,9,4];
+			// 这里无需改变this指向，第一个参数填null或者Math，this都行
+			const max = Math.max.apply(Math,arr1);
+			console.log(max);
+			
+			const min = Math.min.apply(Math,arr1);
+			console.log(min);
+			
+			// bind() 方法
+			// 该方法不会调用函数，但是可以改变函数内部的this指向
+			const fn2 = fn1.bind(obj2,'hello');
+			fn2();
+		</script>
+	</body>
+</html>

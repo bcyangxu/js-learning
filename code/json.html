@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script>
+			// JSON.parse() 方法将文本转换为js对象
+			var text = '{"name":"yangxu","age":21}'
+			var obj = JSON.parse(text)
+			console.log(obj)
+			// JSON.stringfy() 将js对象转换为字符串
+			var obj = {"name":"yangxu","age":21}
+			var myJSON = JSON.stringify(obj)
+			console.log(myJSON)
+			
+			// Date.now()返回自零日期以来的毫秒数
+			var n = Date.now()
+			console.log(n)
+			
+			// 属性Getter和Setter
+			var person = {
+				firstName:'xu',
+				lastName:'yang',
+				sex:'',
+				age:21,
+				get fullName() {
+					return this.firstName + ' ' + this.lastName
+				},
+				get getSex() {
+					return this.sex
+				},
+				set setSex(val) {
+					this.sex = val
+				}
+			}
+			// 使用getter显示来自对象的数据
+			document.getElementById('demo').innerHTML = person.fullName
+			// 使用setter 设置对象属性
+			person.setSex = '男'
+			console.log(person.getSex)
+			
+			// 新的对象属性和方法
+			// Object.defineProperty() 定义对象属性和修改属性值或元素
+			var person = {
+				firstName:'xu',
+				lastName:'yang',
+				language:'ZN'
+			}
+			// 更改属性
+			Object.defineProperty(person,'language',{
+				value:'EN',
+				writable:true,
+				enumerable:true,
+				configurable:true
+			})
+			// 枚举属性
+			var txt = ''
+			for(let x in person){
+				txt += person[x] + '<br>'
+			}
+			document.getElementById('demo').innerHTML = txt
+		</script>
+	</body>
+</html>

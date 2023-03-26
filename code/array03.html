@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<div id="demo"></div>
+    <script>
+		// 数组排序
+        var arr = ['123','23','12','1234']
+		var arr = [10,1,3,25,4]
+		arr.sort()
+		console.log(arr)
+		arr.reverse()
+		console.log(arr)
+		arr.sort(function(a,b){return a - b});
+		console.log(arr)
+		// 数组迭代
+		// Array.forEach() 方法为每个数组元素调用一次函数（回调函数）
+		var txt = '';
+		var arr = [1,2,3,4,5]
+		arr.forEach(test)
+		document.getElementById('demo').innerHTML = txt
+		function test(value){
+			txt += value + '<br>'
+		}
+		// Array.map() 方法通过对每个数组元素执行函数来创建新数组
+		// 不会对没有值的数组元素执行函数，不会更改原始数组
+		var arr2 = arr.map(test2)
+		function test2(value){
+			return value *2
+		}
+		console.log(arr2)
+		// Array.filter() 方法创建一个包含通过测试的数组元素的新数组
+		var arr2 = arr.filter(test3)
+		function test3(value){
+			return value > 3
+		}
+		console.log(arr2)
+		// Array.reduce() 方法在每个数组元素上运行函数，以生成（减少它）单个值
+		// 在数组中从左到右工作，不会减少原始数组
+		var num = arr.reduce(test4)
+		function test4(total,value){
+			return total + value
+		}
+		console.log(num)
+		// Array.every() 方法检查所有数组是否通过测试
+		var flag = arr.every(test5)
+		function test5(value){
+			return value > 3
+		}
+		console.log(flag)
+		// Array.some() 方法检查某些数组元素是否通过测试
+		var flag = arr.some(test6)
+		function test6(value){
+			return value > 3
+		}
+		console.log(flag)
+		
+		// Array.indexOf() 方法在数组中搜索元素并返回其第一次出现的位置
+		// 第二个参数可指定起始索引,未找到则返回-1
+		var index = arr.indexOf(3,1)
+		console.log(index)
+		// Array.lastIndexOf() 从结尾开始搜索
+		var index = arr.lastIndexOf(2)
+		console.log(index)
+		// Array.find() 方法返回通过测试的第一个数组元素的值
+		var a = arr.find(test7)
+		function test7(value){
+			return value > 3
+		}
+		console.log(a)
+		// Array.findIndex() 返回通过测试的第一个数组元素的索引
+		var index = arr.findIndex(test8)
+		function test8(value){
+			return value > 3
+		}
+		console.log(index)
+    </script>
+</body>
+</html>

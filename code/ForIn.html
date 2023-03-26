@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// for in 遍历对象
+			const p = {name:'yangxu',age:22,sex:'男'}
+			for(let x in p){
+				console.log(x,p[x])
+			}
+			// 每次迭代返回一个键，用于访问值
+			// for in 遍历数组
+			const arr = [1,2,3,4,5]
+			for(x in arr){
+				console.log(arr[x])
+			}
+			
+			// Array.forEach() 方法为没个数组元素调用一次函数(回调函数)
+			let total = ''
+			arr.forEach(test)
+			function test(value){
+				return total += value 
+			}
+			console.log(total)
+		</script>
+	</body>
+</html>
