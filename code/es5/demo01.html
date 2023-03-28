@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5中的一些扩展</title>
+</head>
+<body>
+    <script>
+        // json对象
+        var obj = {
+            name:'yangxu',
+            age:22
+        }
+        var str = '{"name":"yangxu","age":22}'
+        // 1.js对象(数组) -> json对象(数组)
+        console.log(JSON.stringify(obj))
+        // 2.json对象(数组) -> js对象(数组)
+        console.log(JSON.parse(str))
+
+        // Object 扩展
+        // 1. Object.creact(property,[descriptors])
+        // 以指定对象为原型，创建新的对象，
+        //同时，第二个参数可以为新的对象添加新的属性,同时对此属性进行描述
+        var obj1 = {name:'xiaodi',age:21}
+        var obj2 = {address:'HBNU'}
+        obj2 = Object.create(obj1,{
+            sex: {
+                value:'男',
+                writeable:false,
+                configurable:true,
+                enumerable:true
+            }
+        })
+        console.log(obj2)
+        // 2. defineProperties(object,descriptors)
+        // 未指定对象扩展多个属性
+        var obj3 = {firstName:'yang',lastName:'xu'}
+        Object.defineProperties(obj3,{
+            fullName: {
+                get : function() {
+                    return this.firstName + ' ' + this.lastName
+                },
+                set : function(data) {
+                    var names = data.split('-')
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                }
+            }
+        })
+
+        console.log(obj3.fullName)
+        obj3.firstName = 'xiao'
+        obj3.lastName = 'di'
+        console.log(obj3.fullName)
+        obj3.fullName = 'Wang-ye'
+        console.log(obj3.fullName)
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+<body>
+    <script>
+        // 数组的解构赋值 (根据位置进行一一对应)
+        let [a,b,c] = [1,2,3]
+        console.log(a,b,c)
+        // 未匹配到的情况 如果变量在一一对应时，没有找到对应的值
+        //  多余的变量会被赋值为undefined
+        let [d,e] = [1]
+        console.log(d,e)
+        // 解构时，左边允许有默认值
+        // 一个变量时
+        let[foo = true] = []
+        console.log(foo)
+        // 两个变量时
+        {
+            let [a,b] = ['test']
+            console.log(a,b)
+        }
+        {
+            let [a,b='hello'] = ['test']
+            console.log(a,b)
+        }
+        // 右边为undefined或者null时
+        {
+            let [a,b='test'] = ['test',undefined]
+            console.log(a,b)
+        }
+        // undefined:相当于什么都没有，此时b使用默认值
+        // null: 相当于有值，但值为null
+        {
+            let [a,b] = ['test',null]
+            console.log(a,b)
+        }
+        // 对象的解构赋值
+        const person = {name:'yangxu',age:22,sex:'男'}
+        let { name, age, sex } = person
+        console.log(name,age,sex)
+        // 对象的解构与数组的解构，有一个重要的区别：
+        // 数组的元素是按照次序排列的，变量的取值由位置决定
+        // 对象的属性没有次序，是根据键来取值的
+        // 如果没有找到对应值，多余的变量会被赋值为undefined
+        let {name:myName,age:myAge} = person
+        //左边的变量可以自定义命名
+        console.log(myName,myAge)
+        let f  = 'test'
+        ({ f } = { f:'hello'})
+        console.log(f)
+    </script>
+</body>
+</html>

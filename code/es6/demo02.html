@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+<body>
+    <script>
+        // 语法: (参数1,参数2,...) => { 函数体 }
+        const fn = (a,b) => {
+            return a + b
+        } 
+        console.log(fn(1,2))
+        // 精简写法
+        // 如果方法体只要一句话，且这句话是return语句，则{} 可以省略
+        const fn1 = (a,b) => a + b
+        console.log(fn1(2,2))
+        // 如果形参只有一个，则()可以省略
+        const fn2 = a => a + 1
+        console.log(fn2(4))
+        // 箭头函数的this指向
+        const obj = { name:'yangxu' }
+        function fn3() {
+            console.log(this)
+            return () => {
+                console.log(this)
+            }
+        }
+        const fn4 = fn3.call(obj)
+        fn4()
+    </script>
+</body>
+</html>
