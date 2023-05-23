@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p v-bind:title="time">show time</p>
+        <p v-if="seen">能看到我吗？</p>
+        <ol>
+            <li v-for="todo in todos">{{todo.text}}</li>
+        </ol>
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">反转消息</button>
+        <input type="text" v-model="message">
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello,vue',
+                time:'页面加载于：'+new Date().toString(),
+                seen:true,
+                todos:[
+                    {text:'html'},
+                    {text:'css'},
+                    {text:'js'}
+                ],
+                message:'hello vue.js'
+            },
+            methods:{
+                reverseMessage:function (){
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

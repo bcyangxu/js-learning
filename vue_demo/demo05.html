@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>文本</h1>
+        <span>{{msg}}</span>
+        <span v-once>这个将不会改变：{{msg}}</span>
+        <h1>原始HTML</h1>
+        <p>Using Mustache:{{rawHtml}}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <h1>Attribute</h1>
+        <p v-bind:id="dynamicId">test</p>
+        <button v-bind:disabled="isButtonDisabled">button</button>
+        <h1>指令</h1>
+        <p v-if="seen">能看见我吗？</p>
+        <a v-bind:href="url">this is a link</a>
+        <button v-on:click="showMsg">click me</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                rawHtml:'<span style="color:red">test</style>',
+                dynamicId:'para',
+                isButtonDisabled:true,
+                seen:false,
+                url:'https://www.baidu.com'
+            },
+            methods:{
+                showMsg:function() {
+                    alert('hello')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

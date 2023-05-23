@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>侦听器</h1>
+        <p>Ask yes or no question</p>
+        <input type="text" v-model="question">
+        <p>{{answer}}</p>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                question:'',
+                answer:'请输入城市查询天气'
+            },
+            watch:{
+                // 如果question发生改变，这个函数会执行
+                question: function(newQuestion,oldQuestion) {
+                    this.answer = 'Watting for you to stop typing',
+                    this.debouncedGetAnswer()
+                }
+            },
+            created: function() {
+                this.debouncedGetAnswer = _.debounce(this.getAnswer,500)
+            },
+            methods:{
+                getAnswer: function () {
+                    this.answer = 'Thanking...'
+                    var vm = this
+                    axios.get('https://v2.alapi.cn/api/tianqi?token=zwj8ae92OuLV9klK&city=' + this.question)
+                    .then(function (response){
+                        console.log(response.data)
+                        vm.answer = _.capitalize(response.data.data.weather)
+                    })
+                    .catch(function (error) {
+                        vm.answer = 'Error!' + error
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
