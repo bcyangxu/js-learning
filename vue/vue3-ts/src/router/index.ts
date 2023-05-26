@@ -10,6 +10,18 @@ const routes: Array<RouteRecordRaw> = [
     },{
         path: '/ref',
         component: () => import('../components/level1/RefDemo.vue')
+    },{
+        path: '/reactive',
+        component: () => import('../components/level1/ReactiveDemo.vue')
+    },{
+        path: '/toref',
+        component: () => import('../components/level1/ToRef.vue')
+    },{
+        path: '/computed',
+        component: () => import('../components/level1/ComputedDemo.vue')
+    },{
+        path: '/shop',
+        component: () => import('../components/level1/ShopCar.vue')
     }
 ]
 
