@@ -22,6 +22,38 @@ const routes: Array<RouteRecordRaw> = [
     },{
         path: '/shop',
         component: () => import('../components/level1/ShopCar.vue')
+    },
+    {
+        path: '/watch',
+        component: () => import('../components/level1/WatchDemo.vue')
+    },
+    {
+        path: '/class',
+        component: () => import('../components/level1/ClassAndStyle.vue')
+    },
+    {
+        path: '/if',
+        component: () => import('../components/level1/IfDemo.vue')
+    },
+    {
+        path: '/for',
+        component: () => import('../components/level1/ForDemo.vue')
+    },
+    {
+        path: '/event',
+        component: () => import('../components/level1/EventDemo.vue')
+    },
+    {
+        path: '/form',
+        component: () => import('../components/level1/FormDemo.vue')
+    },
+    {
+        path: '/form2',
+        component: () => import('../components/level1/FormDemo2.vue')
+    },
+    {
+        path: '/life',
+        component: () => import('../components/level1/LifeCycle.vue')
     }
 ]
 
