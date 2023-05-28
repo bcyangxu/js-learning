@@ -54,6 +54,26 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/life',
         component: () => import('../components/level1/LifeCycle.vue')
+    },
+    {
+        path: '/tempref',
+        component: () => import('../components/level1/TemplateRefs.vue')
+    },
+    {
+        path: '/comp',
+        component: () => import('../components/level1/TestComponent.vue')
+    },
+    {
+        path: '/compreg',
+        component: () => import('../components/level2/ComponentReg.vue')
+    },
+    {
+        path: '/props',
+        component: () => import('../components/level2/TestProps.vue')
+    },
+    {
+        path: '/compevent',
+        component: () => import('../components/level2/ComponentEvent.vue')
     }
 ]
 
