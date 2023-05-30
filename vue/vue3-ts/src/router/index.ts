@@ -74,6 +74,19 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/compevent',
         component: () => import('../components/level2/ComponentEvent.vue')
+    },
+    {
+        path: '/v-model',
+        component: () => import('../components/level2/VModel.vue')
+    },{
+        path: '/attr',
+        component: () => import('../components/level2/AttrDemo.vue')
+    },{
+        path: '/slot',
+        component: () => import('../components/level2/slot/SlotDemo.vue')
+    },{
+        path: '/keeplive',
+        component: () => import('../components/level2/inner/KeepLiveDemo.vue')
     }
 ]
 
