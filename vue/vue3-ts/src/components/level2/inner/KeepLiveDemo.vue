@@ -1,4 +1,5 @@
 <template>
+    <!-- 基本使用 -->
     <div class="demo">
         <label>
             <input type="radio" v-model="current" :value="CompA">A
@@ -9,6 +10,10 @@
         <KeepAlive>
             <component :is="current"></component>
         </KeepAlive>
+    </div>
+    <!-- 包含排除 -->
+    <div>
+
     </div>
 </template>
 <script setup lang="ts">

@@ -87,6 +87,10 @@ const routes: Array<RouteRecordRaw> = [
     },{
         path: '/keeplive',
         component: () => import('../components/level2/inner/KeepLiveDemo.vue')
+    },
+    ,{
+        path: '/teleport',
+        component: () => import('../components/level2/inner/TeleportDemo.vue')
     }
 ]
 
